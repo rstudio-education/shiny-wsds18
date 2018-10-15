@@ -34,7 +34,7 @@ Slides: [Welcome](00-welcome/00-welcome.pdf)
 
 ### 03 - Understanding reactivity
 
-- Slides: [Understanding reactivity]()
+- Slides: [Understanding reactivity](03-reactivity/03-reactivity.pdf)
 - Exercises:
   - [More NHANES apps](03-reactivity/nhanes-apps/)
   - [Review](03-reactivity/review/)
