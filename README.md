@@ -14,32 +14,32 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
     - [Amanda Gadrow](https://twitter.com/ajmcoqui?lang=en), RStudio 
     - [Jennifer Thompson](https://jenthompson.me/), Vanderbilt University Medical Center
 
-### 00-welcome
+### 00 - Welcome
 
 Slides: [Welcome](00-welcome/00-welcome.pdf)
 
-### 01-flexdashboard
+### 01 - Building dashboards with `flexdashboard`
 
 - Slides: [Building dashboards with `flexdashboard`](01-flexdash/01-flexdash.pdf)
 - Demo: 
   - [UN Gender Stats Dashboard](https://gallery.shinyapps.io/un-women-dash/)
   - [Code](01-flexdash/un-women-dash.Rmd)
 
-### 02-shiny
+### 02 - Getting started with Shiny
 
 - Slides: [Getting started with Shiny]()
 - Exercises:
   - [Google index]()
   - [NHANES apps]()
 
-### 03-reactivity
+### 03 - Understanding reactivity
 
 - Slides: [Understanding reactivity]()
 - Exercises:
   - [More NHANES apps](03-reactivity/nhanes-apps/)
   - [Review](03-reactivity/review/)
 
-### 04-design-ui
+### 04 - Designing UI
 
 - Slides: [Designing UI]()
 - Exercises:
