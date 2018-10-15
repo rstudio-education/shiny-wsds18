@@ -1,0 +1,245 @@
+---
+title: "UN Gender Stats Explorer"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: https://github.com/mine-cetinkaya-rundel/rladies-phl-shiny/blob/master/01-flexdash/un-women-dash.Rmd
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(shiny)
+library(tidyverse)
+library(DT)
+```
+
+```{r load-data, include = FALSE}
+unwomen <- read_csv("data/un-women.csv") %>% 
+  dplyr::filter(
+    !is.na(region),
+    sex == "Female"
+    ) %>%
+  select(-key)
+```
+
+```{r save-fields, include = FALSE}
+min_year  <- min(unwomen$year)
+max_year  <- max(unwomen$year)
+n_tot_years <- (max_year - min_year) + 1
+regions   <- unwomen %>% distinct(region) %>% arrange(region) %>% pull(region)
+```
+
+Sidebar {.sidebar}
+=======================================================================
+
+### UN Gender Stats Data
+
+Filter the data for characteristics you're interested in exploring:
+
+```{r}
+hr()
+
+sliderInput(inputId = "year", label = "Year",
+            min = min_year, max = max_year,
+            value = c(2001, max_year), step = 1, sep = "")
+
+hr()
+
+checkboxGroupInput(inputId = "region", label = "Region",
+                   choices = regions, 
+                   selected = c(
+                     "Developed regions", 
+                     "Latin America and the Caribbean",
+                     "Sub-Saharan Africa")
+                   )
+
+hr()
+
+x_var <- reactive({ syms(input$x) })
+y_var <- reactive({ syms(input$x) })
+
+sel_data <- reactive({
+  unwomen %>%
+    dplyr::filter(
+      between(year, input$year[1], input$year[2]),
+      region %in% input$region
+      ) %>%
+    dplyr::filter(!is.na( !!!x_var() ), !is.na( !!!y_var() )) %>%
+    group_by(country) %>%
+    arrange(desc(year)) %>%
+    top_n(1)
+})
+```
+
+Dashboard
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Percentage of countries with data on selected variables {.value-box}
+
+```{r}
+renderGauge({
+  
+  n_sel_country <- unwomen %>%
+    dplyr::filter(region %in% input$region) %>%
+    distinct(country) %>%
+    nrow()
+  
+  p <- round( nrow(sel_data()) / n_sel_country * 100, 0)
+  
+  gauge(p, min = 0, max = 100, symbol = "%", 
+        gaugeSectors(success = c(80, 100), warning = c(40, 79), 
+                     danger = c(0, 39)))
+})
+```
+
+### Average percentage of women judges {.value-box}
+
+```{r}
+renderValueBox({
+  valueBox(value = round(mean(sel_data()$prop_female_judge, na.rm = TRUE), 2), 
+           icon = "glyphicon-bullhorn")
+})
+```
+
+### Average percentage of women in parliament {.value-box}
+
+```{r}
+renderValueBox({
+  valueBox(value = round(mean(sel_data()$prop_nat_parl, na.rm = TRUE), 2), 
+           icon = "glyphicon-thumbs-down")
+})
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Variable choices {data-width=340}
+
+Select the variables you would like to display on the X and Y axes of 
+the scatterplot on the right, respectively.
+
+```{r}
+selectInput(
+  inputId = "x", label = "X-axis",
+  choices = c(
+    "Average number of hours spent on unpaid domestic and care work" 
+      = "hrs_unpaid_dom_care_work",
+    "Average number of hours spent on paid and unpaid domestic and care work combined"
+      = "hrs_dom_care_work",
+    "Labour force participation rate" = "labor_force",
+    "Proportion of employed who are self-employed" = "prop_self_employed",
+    "Proportion of employed who are contributing family workers" = "prop_family_worker",
+    "Proportion of employed who are employers" = "prop_employers",
+    "Percentage of employed in industrial sector" = "perc_industrial",
+    "Percentage of employed in service sector" = "perc_service",
+    "Proportion using the Internet" = "prop_internet",
+    "Proportion of seats held by women in national parliament" = "prop_nat_parl",
+    "Proportion of female judges" = "prop_female_judge"
+    ),
+  selected = "labor_force"
+  )
+
+selectInput(
+  inputId = "y", label = "Y-axis",
+  choices = c(
+    "Average number of hours spent on unpaid domestic and care work" 
+      = "hrs_unpaid_dom_care_work",
+    "Average number of hours spent on paid and unpaid domestic and care work combined"
+      = "hrs_dom_care_work",
+    "Labour force participation rate" = "labor_force",
+    "Proportion of employed who are self-employed" = "prop_self_employed",
+    "Proportion of employed who are contributing family workers" = "prop_family_worker",
+    "Proportion of employed who are employers" = "prop_employers",
+    "Percentage of employed in industrial sector" = "perc_industrial",
+    "Percentage of employed in service sector" = "perc_service",
+    "Proportion using the Internet" = "prop_internet",
+    "Proportion of seats held by women in national parliament" = "prop_nat_parl",
+    "Proportion of female judges" = "prop_female_judge"
+    ),
+  selected = "prop_female_judge"
+  )
+
+xlab <- reactive({
+  case_when(
+    input$x == "hrs_unpaid_dom_care_work" ~  
+      "Average number of hours spent on unpaid domestic and care work",
+    input$x == "hrs_dom_care_work"        ~  
+      "Average number of hours spent on paid and unpaid domestic and care work combined",
+    input$x == "labor_force"              ~ 
+      "Labour force participation rate, ages 15-24",
+    input$x == "prop_self_employed"       ~ "Proportion of employed who are self-employed",
+    input$x == "prop_family_worker"       ~ 
+      "Proportion of employed who are contributing family workers",
+    input$x == "prop_employers"           ~ "Proportion of employed who are employers",
+    input$x == "perc_industrial"          ~ "Percentage of employed in industrial sector",
+    input$x == "perc_service"             ~ "Percentage of employed in service sector",
+    input$x == "prop_internet"            ~ "Proportion using the Internet",
+    input$x == "prop_nat_parl"            ~ 
+      "Proportion of seats held by women in national parliament",
+    input$x == "prop_female_judge"        ~ "Proportion of female judges"
+  )
+})
+
+ylab <- reactive({
+  case_when(
+    input$y == "hrs_unpaid_dom_care_work" ~  
+      "Average number of hours spent on unpaid domestic and care work",
+    input$y == "hrs_dom_care_work"        ~  
+      "Average number of hours spent on paid and unpaid domestic and care work combined",
+    input$y == "labor_force"              ~ 
+      "Labour force participation rate, ages 15-24",
+    input$y == "prop_self_employed"       ~ "Proportion of employed who are self-employed",
+    input$y == "prop_family_worker"       ~ 
+      "Proportion of employed who are contributing family workers",
+    input$y == "prop_employers"           ~ "Proportion of employed who are employers",
+    input$y == "perc_industrial"          ~ "Percentage of employed in industrial sector",
+    input$y == "perc_service"             ~ "Percentage of employed in service sector",
+    input$y == "prop_internet"            ~ "Proportion using the Internet",
+    input$y == "prop_nat_parl"            ~ 
+      "Proportion of seats held by women in national parliament",
+    input$y == "prop_female_judge"        ~ "Proportion of female judges"
+  )
+})
+
+br()
+```
+
+**Note:** Only data from the most recent year for your selected variables will 
+be plotted. For example, you selected years 2001 through 2016 on the left, and 
+want to visualize labour force vs. proportion in the national parliament, the 
+app first determines the most recent year for which there is data recorded on 
+a given country in your selected regions, and visualizes only those data points.
+
+### Visualization {data-width=700}
+
+```{r}
+renderPlot({
+  ggplot(data = sel_data(), 
+         mapping = aes_string(x = input$x, y = input$y, color = "region")) +
+    geom_point(size = 2, alpha = 0.8) +
+    theme_minimal() +
+    labs(x = xlab(), y = ylab(), color = "Region")
+  })
+```
+
+Data
+=======================================================================
+
+### About the data
+
+This [flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/) uses data 
+from [UN Gender Stats](https://genderstats.un.org).
+
+The data used in the analysis is shown below.
+
+```{r}
+DT::renderDataTable({
+  datatable( sel_data() )
+})
+```
+

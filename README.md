@@ -20,10 +20,10 @@ Slides: [Welcome](00-welcome/00-welcome.pdf)
 
 ### 01-flexdashboard
 
-- Slides: [Building dashboards with `flexdashboard`]()
+- Slides: [Building dashboards with `flexdashboard`](01-flexdash/01-flexdash.pdf)
 - Demo: 
   - [UN Gender Stats Dashboard](https://gallery.shinyapps.io/un-women-dash/)
-  - [Code]()
+  - [Code](01-flexdash/un-women-dash.Rmd)
 
 ### 02-shiny
 
