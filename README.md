@@ -16,32 +16,37 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
 
 ### 00 - Welcome
 
-Slides: [Welcome](00-welcome/00-welcome.pdf)
-
-### 01 - Building dashboards with `flexdashboard`
-
-- Slides: [Building dashboards with `flexdashboard`](01-flexdash/01-flexdash.pdf)
+- Slides: [Welcome](00-welcome/00-welcome.pdf)
 - Demo: 
   - [UN Gender Stats Dashboard](https://gallery.shinyapps.io/un-women-dash/)
-  - [Code](01-flexdash/un-women-dash.Rmd)
+  - [Code](00-flexdash/un-women-dash.Rmd)
 
-### 02 - Getting started with Shiny
+### 01 - Getting started with Shiny
 
-- Slides: [Getting started with Shiny](02-shiny/02-shiny.pdf)
+- Slides: [Getting started with Shiny](01-shiny/01-shiny.pdf)
 - Exercises:
   - [Google index](goog-index/)
   - [NHANES apps](nhanes-apps/)
 
-### 03 - Understanding reactivity
+### 02 - Understanding reactivity
 
-- Slides: [Understanding reactivity](03-reactivity/03-reactivity.pdf)
+- Slides: [Understanding reactivity](02-reactivity/02-reactivity.pdf)
 - Exercises:
-  - [More NHANES apps](03-reactivity/nhanes-apps/)
-  - [Review](03-reactivity/review/)
+  - [More NHANES apps](02-reactivity/nhanes-apps/)
+  - [Review](02-reactivity/review/)
 
-### 04 - Designing UI
+### 03 - Designing UI
 
-- Slides: [Designing UI]()
+- Slides: [Designing UI](03-design-ui/03-design-ui.pdf)
 - Exercises:
-  - 
+  - [Movies apps](03-design-ui/movies-apps/)
+
+### 04 - Building dashboards
+
+- Slides: [Building dashboards](04-dashboards/04-dashboards.pdf)
+- Exercises:
+  - [Shiny dashboards](04-dashboards/dashboards/)
+  - [Flexdashboards](04-dashboards/flexdashboards/)
+
+
 
