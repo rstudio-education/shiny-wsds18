@@ -47,6 +47,3 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
 - Exercises:
   - [Shiny dashboards](04-dashboards/dashboards/)
   - [Flexdashboards](04-dashboards/flexdashboards/)
-
-
-
