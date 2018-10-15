@@ -1,7 +1,3 @@
-## Build > Improve > Share
-## Apps and Dashboards with Shiny
-## WSDS 2018
-
 Shiny is an R package that makes it easy to build interactive web apps straight 
 from R. With Shiny, you can create standalone apps, embed them in R Markdown 
 documents, build dashboards, and much more. This course will introduce you to 
@@ -13,10 +9,10 @@ workshop is for you! Please bring a laptop with you to the course.
 
 Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/2018/) are below.
 
-- **Instructor:** Mine Cetinkaya-Rundel, Duke University + RStudio
+- **Instructor:** [Mine Çetinkaya-Rundel](http://mine-cr.com), Duke University + RStudio
 - **TAs:**
-    - Amanda Gadrow, RStudio 
-    - Jennifer Thompson, Vanderbilt University Medical Center
+    - [Amanda Gadrow](https://twitter.com/ajmcoqui?lang=en), RStudio 
+    - [Jennifer Thompson](https://jenthompson.me/), Vanderbilt University Medical Center
 
 ### Slides
 
