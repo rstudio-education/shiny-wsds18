@@ -27,10 +27,10 @@ Slides: [Welcome](00-welcome/00-welcome.pdf)
 
 ### 02 - Getting started with Shiny
 
-- Slides: [Getting started with Shiny]()
+- Slides: [Getting started with Shiny](02-shiny/02-shiny.pdf)
 - Exercises:
-  - [Google index]()
-  - [NHANES apps]()
+  - [Google index](goog-index/)
+  - [NHANES apps](nhanes-apps/)
 
 ### 03 - Understanding reactivity
 
