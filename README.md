@@ -16,7 +16,7 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
 
 ### 00-welcome
 
-Slides: [Welcome]()
+Slides: [Welcome](00-welcome/00-welcome.pdf)
 
 ### 01-flexdashboard
 
