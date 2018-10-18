@@ -19,32 +19,32 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
 - Slides: [Welcome](00-welcome/00-welcome.pdf)
 - Demo: 
   - [UN Gender Stats Dashboard](https://gallery.shinyapps.io/un-women-dash/)
-  - [Code](/shiny-wsds18/blob/master/00-welcome/un-women-dash.Rmd)
-  - [Data](/shiny-wsds18/tree/master/00-welcome/data)
+  - [Code](https://github.com/rstudio-education/shiny-wsds18/blob/master/00-welcome/un-women-dash.Rmd)
+  - [Data](https://github.com/rstudio-education/shiny-wsds18/tree/master/00-welcome/data)
 
 ### 01 - Getting started with Shiny
 
 - Slides: [Getting started with Shiny](01-shiny/01-shiny.pdf)
 - Exercises:
-  - [Google index](01-shiny/goog-index/)
-  - [NHANES apps](01-shiny/nhanes-apps/)
+  - [Google index](https://github.com/rstudio-education/shiny-wsds18/tree/master/01-shiny/goog-index)
+  - [NHANES apps](https://github.com/rstudio-education/shiny-wsds18/tree/master/01-shiny/nhanes-apps)
 
 ### 02 - Understanding reactivity
 
 - Slides: [Understanding reactivity](02-reactivity/02-reactivity.pdf)
 - Exercises:
-  - [More NHANES apps](02-reactivity/nhanes-apps/)
-  - [Review](02-reactivity/review/)
+  - [More NHANES apps](https://github.com/rstudio-education/shiny-wsds18/tree/master/02-reactivity/nhanes-apps)
+  - [Review](https://github.com/rstudio-education/shiny-wsds18/tree/master/02-reactivity/review)
 
 ### 03 - Designing UI
 
 - Slides: [Designing UI](03-design-ui/03-design-ui.pdf)
 - Exercises:
-  - [Movies apps](03-design-ui/movies-apps/)
+  - [Movies apps](https://github.com/rstudio-education/shiny-wsds18/tree/master/03-design-ui/movies-apps)
 
 ### 04 - Building dashboards
 
 - Slides: [Building dashboards](04-dashboards/04-dashboards.pdf)
 - Exercises:
-  - [Shiny dashboards](04-dashboards/dashboards/)
-  - [Flexdashboards](04-dashboards/flexdashboards/)
+  - [Shiny dashboards](https://github.com/rstudio-education/shiny-wsds18/tree/master/04-dashboards/dashboards)
+  - [Flexdashboards](https://github.com/rstudio-education/shiny-wsds18/tree/master/04-dashboards/flexdashboards)
