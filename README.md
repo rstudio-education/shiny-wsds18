@@ -19,14 +19,14 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
 - Slides: [Welcome](00-welcome/00-welcome.pdf)
 - Demo: 
   - [UN Gender Stats Dashboard](https://gallery.shinyapps.io/un-women-dash/)
-  - [Code](00-flexdash/un-women-dash.Rmd)
+  - [Code](00-welcome/un-women-dash.Rmd)
 
 ### 01 - Getting started with Shiny
 
 - Slides: [Getting started with Shiny](01-shiny/01-shiny.pdf)
 - Exercises:
-  - [Google index](goog-index/)
-  - [NHANES apps](nhanes-apps/)
+  - [Google index](01-shiny/goog-index/)
+  - [NHANES apps](01-shiny/nhanes-apps/)
 
 ### 02 - Understanding reactivity
 
