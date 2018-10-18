@@ -19,8 +19,8 @@ Materials for this workshop at [WSDS 2018](https://ww2.amstat.org/meetings/wsds/
 - Slides: [Welcome](00-welcome/00-welcome.pdf)
 - Demo: 
   - [UN Gender Stats Dashboard](https://gallery.shinyapps.io/un-women-dash/)
-  - [Code](/blob/master/00-welcome/un-women-dash.Rmd)
-  - [Data](/tree/master/00-welcome/data)
+  - [Code](/shiny-wsds18/blob/master/00-welcome/un-women-dash.Rmd)
+  - [Data](/shiny-wsds18/tree/master/00-welcome/data)
 
 ### 01 - Getting started with Shiny
 
